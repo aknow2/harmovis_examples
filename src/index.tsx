@@ -7,12 +7,15 @@ import * as serviceWorker from './serviceWorker';
 import { getCombinedReducer } from 'harmoware-vis';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import heatmapSettings from './reducer/heatmapSettings';
 import createSagaMiddleware from 'redux-saga';
 
 const saga = createSagaMiddleware();
 
 const store = createStore(
-  getCombinedReducer(),
+  getCombinedReducer({
+    heatmapSettings
+  }),
   applyMiddleware(saga)
 );
 

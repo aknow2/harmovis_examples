@@ -12,12 +12,13 @@
     "node": "^12.11.0",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
-    "react-redux": "^5.0.6",
+    "react-redux": "^7.1.1",
     "react-scripts": "3.1.2",
     "redux": "^3.7.2",
     "redux-saga": "^1.1.1",
     "sass": "^1.22.12",
-    "typescript": "3.6.3"
+    "typescript": "3.6.3",
+    "typescript-fsa": "^3.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
