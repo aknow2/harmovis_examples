@@ -1,6 +1,6 @@
 {
   "name": "harmovis_examples",
-  "homepage": "https://aknow2.com/harmovis_examples/build/",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
