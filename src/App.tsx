@@ -1,11 +1,12 @@
 import React from 'react';
 import { FpsDisplay,HarmoVisLayers, Container, BasedProps, BasedState, connectToHarmowareVis, MovesLayer, PlayButton, PauseButton, ForwardButton, ReverseButton, AddMinutesButton, ElapsedTimeRange, SpeedRange, Movesbase, MovesbaseOperation } from 'harmoware-vis';
-import HeatmapRaidusRange from './components/HeatmapRaidusRange';
+import HeatmapRaidusRange from './container/HeatmapRaidusRange';
 import HeatmapLayer from './layers/HeatmapLayer';
 import { HeatmapState } from './reducer/heatmapSettings';
 import './App.scss';
-import ToggleHeatMap from './components/ToggleHeatMap';
-import HeatmapTypeSelection from './components/HeatmapSelection';
+import ToggleHeatMap from './container/ToggleHeatMap';
+import Toggle3DHeatmap from './container/Toggle3DHeatmap';
+import HeatmapTypeSelection from './container/HeatmapSelection';
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
 
@@ -54,7 +55,7 @@ class App extends Container<BasedProps & HeatmapState, BasedState> {
   render() {
     const { settime, timeBegin, timeLength, actions, clickedObject, depotsData,
       secperhour, animatePause, animateReverse, viewport, routePaths,
-      lightSettings, movesbase, movedData, gridSize, enabledHeatmap, selectedType } = this.props;
+      lightSettings, movesbase, movedData, gridSize, enabledHeatmap, selectedType, extruded } = this.props;
     const optionVisible = false;
     if (actions === undefined
       || settime === undefined || lightSettings === undefined
@@ -97,6 +98,9 @@ class App extends Container<BasedProps & HeatmapState, BasedState> {
                 enable heatmap: <ToggleHeatMap />
               </li>
               <li>
+                3D: <Toggle3DHeatmap />
+              </li>
+              <li>
                 grid size(m): <HeatmapRaidusRange />
               </li>
               <li>
@@ -116,6 +120,7 @@ class App extends Container<BasedProps & HeatmapState, BasedState> {
               new HeatmapLayer({
                 visible: enabledHeatmap,
                 type: selectedType,
+                extruded,
                 movedData,
                 size: gridSize
               }),

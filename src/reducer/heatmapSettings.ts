@@ -4,7 +4,7 @@ import * as actions from '../actions/actions';
 
 export enum HeatmapType {
   Hexagon="Hexagon",
-  Grid="Grdi",
+  Grid="Grid",
 }
 
 export interface HeatmapState{
@@ -12,6 +12,7 @@ export interface HeatmapState{
   particleCount: number;
   gridSize: number;
   enabledHeatmap: boolean;
+  extruded: boolean;
 }
 
 const initialState: HeatmapState  = {
@@ -19,6 +20,7 @@ const initialState: HeatmapState  = {
   enabledHeatmap: true,
   gridSize: 400,
   particleCount: 3000,
+  extruded: true
 };
 
 export default (state = initialState, action: Action): HeatmapState => {
@@ -44,6 +46,12 @@ export default (state = initialState, action: Action): HeatmapState => {
     return {
       ...state,
       selectedType: action.payload,
+    }
+  }
+  if (isType(action, actions.extrudeHeatmap)) {
+    return {
+      ...state,
+      extruded: action.payload,
     }
   }
   return state;

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/harmovis_examples/build/precache-manifest.833e11dd2195627f30948c2650601e79.js"
+  "/harmovis_examples/build/precache-manifest.665919415f1a7cefb957f5d55af8ad85.js"
 );
 
 self.addEventListener('message', (event) => {
